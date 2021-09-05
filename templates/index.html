@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" type="text/css" href="static/main.css">
+</head>
+<body>
+    <div class="image"></div>
+    <div class="banner-text">
+        <h1>Check your Car Price</h1>
+    </div>
+    <div class="prediction-text">
+        <form action="{{ url_for('predict') }}" method="post">
+            <h2>Please enter the Year of Purchase</h2>
+            <div class="box">            
+                <input type="number" name="year" required="required">
+            </div>
+            <br>
+            <h2>How many Km driven ?</h2>
+            <div class="box">
+                <input type="number" name="km_driven" required="required">
+            </div>
+            <br>
+            <h2>Select the Fuel Type</h2>
+            <select name="fuel_type" required="required">
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+                <option value="LPG">LPG</option>
+                <option value="Electric">Electric</option>
+            </select>
+            <br><br>
+            <h2>Are you a Dealer, Individual or Trustmark Dealer ?</h2>
+            <select name="seller_type" required="required">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+                <option value="Trustmark">Trustmark Dealer</option>
+            </select>
+            <br><br>
+            <h2>Select Your Vehicle's Transmission Type</h2>
+            <select name="transmission" required="required">
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select>
+            <br><br>
+            <h2>How many Owners previously had for this car ?</h2>
+            <select name="owner" required="required">
+                <option value="First">First Owner</option>
+                <option value="Second">Second Owner</option>
+                <option value="Third">Third Owner</option>
+                <option value="Fourth">Fourth and above Owner</option>
+                <option value="Test">Test drive Car</option>
+            </select><br><br><br>
+            <button class="button">
+                Calculate Selling Price
+            </button>
+        </form>
+        <div class="credits">- by Aditya shinde</div>
+        <br>
+
+    <h3 class="prediction">{{ prediction_text }}</h3>
+    </div>
+
+</body>
+</html>
